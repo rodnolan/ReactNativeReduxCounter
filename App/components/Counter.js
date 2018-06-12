@@ -20,7 +20,7 @@ export default class Counter extends Component {
         <Button
           disabled={!this.state.valid}
           title="Up"
-          onPress={this.props.increment}/>
+          onPress={() => this.props.increment(this.state.jumpBy)}/>
           {/* this.props.increment is a function that is passed in from the CounterContainer */}
           {/* this function just dispatches an Action */}
           {/* there is no payload because this is a simple implementation */}
@@ -46,7 +46,7 @@ export default class Counter extends Component {
         <Button
           disabled={!this.state.valid}
           title="Down"
-          onPress={this.props.decrement}/>
+          onPress={() => this.props.decrement(this.state.jumpBy)}/>
           {/* this.props.decrement is just a different version of the story decribed above */}
       </View>
     );
