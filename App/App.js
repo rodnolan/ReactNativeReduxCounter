@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 const instructions = 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu';
@@ -7,8 +9,10 @@ const instructions = 'Press Cmd+R to reload,\n' +
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+        </View>
+      </Provider>
     );
   }
 }
