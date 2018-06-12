@@ -20,8 +20,8 @@ const mapStateToProps = state => ({
 // These actions (aka events) are processed by reducer functions. 
 // The reducer's job is to react to these events by 'mutating' app state
 const mapDispatchToProps = (dispatch) => ({
-  increment: () => { dispatch({ type: 'INCREMENT' }) },
-  decrement: () => { dispatch({ type: 'DECREMENT' }) },
+  increment: (amount) => { dispatch({ type: 'INCREMENT', payload: amount }) },
+  decrement: (amount) => { dispatch({ type: 'DECREMENT', payload: amount }) },
   reset: () => { dispatch({ type: 'RESET' }) },
 })
 
