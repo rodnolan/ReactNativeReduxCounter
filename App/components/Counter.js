@@ -7,6 +7,12 @@ import {
 } from 'react-native';
 
 export default class Counter extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { jumpBy: 1, valid: true };
+  }
+
   render() {
     return (
       <View>
