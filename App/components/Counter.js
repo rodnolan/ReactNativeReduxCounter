@@ -3,6 +3,7 @@ import {
   Button,
   StyleSheet,
   Text,
+  TextInput,
   View,
 } from 'react-native';
 
@@ -22,6 +23,20 @@ export default class Counter extends Component {
           {/* this.props.increment is a function that is passed in from the CounterContainer */}
           {/* this function just dispatches an Action */}
           {/* there is no payload because this is a simple implementation */}
+        <TextInput 
+          value={String(this.state.jumpBy)} 
+          onChangeText={(text) => {
+            // enforce numeric input
+            let jumpBy = 0, valid = true;
+            let numberEntered = Number(text);
+            if (!isNaN(numberEntered)) {
+              jumpBy = numberEntered;
+            } else {
+              valid = false;
+            }
+
+            this.setState({jumpBy, valid}, () => console.log('state.jumpBy is now ' + this.state.jumpBy));
+          }}/>
         <Text
           style={styles.counter}
           onPress={this.props.reset}>
